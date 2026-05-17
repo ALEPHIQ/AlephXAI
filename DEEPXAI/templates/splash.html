@@ -1,3 +1,228 @@
-<p>
-    this is an ai based company
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEEPXAI </title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background texture simulation (wave/dots effect) */
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0),
+                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 60%, rgba(0,0,0,1) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+
+        /* Main Content Container */
+        .container {
+            text-align: center;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        /* Main Heading Logo */
+        .logo {
+            font-size: 7.5rem;
+            font-weight: 900;
+            letter-spacing: 0.4rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 
+                         0 0 40px rgba(255, 255, 255, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Tagline below the logo */
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.45rem;
+            color: #e0e0e0;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Central Divider Lens Flare effect */
+        .divider {
+            position: relative;
+            width: 300px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .glow-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px 4px rgba(255, 255, 255, 1);
+        }
+
+        /* Buttons Styling */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 6rem;
+        }
+
+        .btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+            text-decoration: none;
+            padding: 16px 45px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Get In Button */
+        .btn-primary {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #e6e6e6;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .arrow {
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* GitHub Button */
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary i {
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Double Chevron Scroll Down Indicator */
+        .scroll-down {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        /* Responsive adjustments for mobile screens */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 4rem;
+                letter-spacing: 0.2rem;
+            }
+            .tagline {
+                font-size: 0.75rem;
+                letter-spacing: 0.2rem;
+            }
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="container">
+        <h1 class="logo">DEEPXAI</h1>
+        
+        <p class="tagline">BUILDING INTELLIGENCE. SHAPING THE FUTURE.</p>
+        
+        <div class="divider">
+            <div class="glow-dot"></div>
+        </div>
+
+        <div class="button-group">
+            <a href="http://127.0.0.1:8000/home/" class="btn btn-primary">
+                GET IN <span class="arrow">&rarr;</span>
+            </a>
+            <a href="https://github.com/DevKumar57-67/DEEPXAI" class="btn btn-secondary">
+                <i class="fab fa-github"></i> GITHUB
+            </a>
+        </div>
+
+        <div class="scroll-down">
+            <i class="fas fa-angle-double-down"></i>
+        </div>
+    </div>
+
+</body>
+</html>
