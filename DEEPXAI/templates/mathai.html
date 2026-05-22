@@ -1,3 +1,1124 @@
-<h1>
-    Mathematical AI
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DEEPXAI | Transformers</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Montserrat',sans-serif;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#050505;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        .sidebar{
+
+            position:fixed;
+
+            left:0;
+            top:0;
+
+            width:280px;
+            height:100vh;
+
+            background:rgba(0,0,0,0.92);
+
+            backdrop-filter:blur(15px);
+
+            border-right:1px solid rgba(255,255,255,0.05);
+
+            padding:40px 25px;
+
+            z-index:1000;
+
+            overflow-y:auto;
+
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width:5px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background:rgba(255,255,255,0.15);
+            border-radius:10px;
+        }
+
+        .sidebar-logo{
+
+            color:white;
+
+            font-size:2rem;
+            font-weight:800;
+
+            letter-spacing:4px;
+
+            margin-bottom:50px;
+
+        }
+
+        .search-box{
+
+            width:100%;
+            height:55px;
+
+            background:rgba(255,255,255,0.05);
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            border-radius:12px;
+
+            display:flex;
+            align-items:center;
+
+            padding:0 18px;
+
+            margin-bottom:50px;
+
+        }
+
+        .search-box i{
+
+            color:#bdbdbd;
+
+            margin-right:12px;
+
+        }
+
+        .search-box input{
+
+            width:100%;
+
+            background:none;
+
+            border:none;
+
+            outline:none;
+
+            color:white;
+
+            font-size:0.95rem;
+
+        }
+
+        .search-box input::placeholder{
+            color:#9f9f9f;
+        }
+
+        .sidebar ul{
+
+            list-style:none;
+
+            display:flex;
+            flex-direction:column;
+
+            gap:18px;
+
+        }
+
+        .sidebar ul li a{
+
+            width:100%;
+
+            padding:16px 18px;
+
+            border-radius:12px;
+
+            display:flex;
+            align-items:center;
+
+            gap:15px;
+
+            text-decoration:none;
+
+            color:#d4d4d4;
+
+            transition:0.35s ease;
+
+            font-size:1rem;
+
+        }
+
+        .sidebar ul li a:hover{
+
+            background:white;
+
+            color:black;
+
+            transform:translateX(5px);
+
+        }
+
+        section,
+        footer{
+
+            margin-left:280px;
+
+        }
+
+        .hero{
+
+            margin-left:280px;
+
+            min-height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            position:relative;
+
+            overflow:hidden;
+
+            padding:0 40px;
+
+        }
+
+        .hero::before{
+
+            content:'';
+
+            position:absolute;
+
+            width:800px;
+            height:800px;
+
+            background:
+            radial-gradient(circle,
+            rgba(255,255,255,0.06),
+            transparent 65%);
+
+            z-index:0;
+
+        }
+
+        .particles span{
+
+            position:absolute;
+
+            width:2px;
+            height:2px;
+
+            background:white;
+
+            border-radius:50%;
+
+            opacity:0.3;
+
+            animation:float 10s linear infinite;
+
+        }
+
+        @keyframes float{
+
+            from{
+                transform:translateY(100vh);
+            }
+
+            to{
+                transform:translateY(-100vh);
+            }
+
+        }
+
+        .hero-center-wrapper{
+
+            width:100%;
+            max-width:950px;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+
+            z-index:10;
+
+        }
+
+        .hero-content h1{
+
+            font-size:4.2rem;
+            font-weight:800;
+
+            line-height:1.2;
+
+            letter-spacing:-0.02em;
+
+            margin-bottom:25px;
+
+        }
+
+        .hero-content p{
+
+            color:#d6d6d6;
+
+            font-size:1.15rem;
+
+            line-height:1.9;
+
+            max-width:800px;
+
+            margin:auto;
+
+        }
+
+        .hero-buttons{
+
+            margin-top:50px;
+
+            display:flex;
+            justify-content:center;
+
+            gap:25px;
+
+            flex-wrap:wrap;
+
+        }
+
+        .btn{
+
+            padding:18px 40px;
+
+            border-radius:12px;
+
+            text-decoration:none;
+
+            font-size:1rem;
+            font-weight:600;
+
+            transition:0.35s ease;
+
+        }
+
+        .btn-primary{
+
+            background:white;
+            color:black;
+
+        }
+
+        .btn-primary:hover{
+
+            background:transparent;
+
+            color:white;
+
+            border:1px solid white;
+
+            transform:translateY(-5px);
+
+        }
+
+        .btn-secondary{
+
+            border:1px solid rgba(255,255,255,0.3);
+
+            color:white;
+
+        }
+
+        .btn-secondary:hover{
+
+            background:white;
+
+            color:black;
+
+            transform:translateY(-5px);
+
+        }
+
+        section{
+
+            padding:120px 8%;
+
+        }
+
+        .section-title{
+
+            font-size:3rem;
+
+            font-weight:800;
+
+            margin-bottom:20px;
+
+        }
+
+        .section-subtitle{
+
+            color:#bdbdbd;
+
+            max-width:800px;
+
+            line-height:1.9;
+
+            margin-bottom:60px;
+
+        }
+
+        .grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(280px,1fr));
+
+            gap:30px;
+
+        }
+
+        .card{
+
+            background:rgba(255,255,255,0.03);
+
+            border:1px solid rgba(255,255,255,0.05);
+
+            padding:35px;
+
+            border-radius:20px;
+
+            transition:0.4s;
+
+            backdrop-filter:blur(10px);
+
+        }
+
+        .card:hover{
+
+            transform:translateY(-10px);
+
+            border:1px solid rgba(255,255,255,0.15);
+
+            box-shadow:
+            0 0 25px rgba(255,255,255,0.05);
+
+        }
+
+        .card i{
+
+            font-size:2rem;
+
+            margin-bottom:20px;
+
+        }
+
+        .card h3{
+
+            margin-bottom:15px;
+
+            font-size:1.4rem;
+
+        }
+
+        .card p{
+
+            color:#c6c6c6;
+
+            line-height:1.8;
+
+        }
+
+        .formula-box{
+
+            background:rgba(255,255,255,0.04);
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            border-radius:20px;
+
+            padding:40px;
+
+            margin-top:40px;
+
+        }
+
+        .formula{
+
+            font-size:2rem;
+
+            text-align:center;
+
+            margin:35px 0;
+
+            font-weight:700;
+
+            color:white;
+
+        }
+
+        .formula-description{
+
+            color:#cfcfcf;
+
+            line-height:2;
+
+            font-size:1.05rem;
+
+        }
+
+        .timeline{
+
+            display:flex;
+            flex-direction:column;
+
+            gap:30px;
+
+        }
+
+        .timeline-card{
+
+            padding:35px;
+
+            border-radius:20px;
+
+            background:rgba(255,255,255,0.03);
+
+            border:1px solid rgba(255,255,255,0.05);
+
+        }
+
+        .timeline-card h3{
+
+            margin-bottom:15px;
+
+            font-size:1.5rem;
+
+        }
+
+        .timeline-card p{
+
+            color:#d0d0d0;
+
+            line-height:1.9;
+
+        }
+
+        .highlight{
+
+            color:white;
+            font-weight:700;
+        }
+
+        footer{
+
+            padding:50px 8%;
+
+            border-top:1px solid rgba(255,255,255,0.05);
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            flex-wrap:wrap;
+
+            gap:20px;
+
+        }
+
+        footer p{
+            color:#bdbdbd;
+        }
+
+        .socials{
+
+            display:flex;
+
+            gap:20px;
+
+        }
+
+        .socials a{
+
+            color:white;
+
+            font-size:1.2rem;
+
+            transition:0.3s;
+
+        }
+
+        .socials a:hover{
+            transform:translateY(-5px);
+        }
+
+        @media(max-width:900px){
+
+            .sidebar{
+
+                width:100%;
+
+                height:auto;
+
+                position:relative;
+
+                border-right:none;
+
+                border-bottom:1px solid rgba(255,255,255,0.05);
+
+            }
+
+            .sidebar ul{
+
+                flex-direction:row;
+
+                flex-wrap:wrap;
+
+            }
+
+            .hero,
+            section,
+            footer{
+
+                margin-left:0;
+
+                width:100%;
+
+            }
+
+            .hero-content h1{
+                font-size:2.6rem;
+            }
+
+            .section-title{
+                font-size:2.2rem;
+            }
+
+            .formula{
+                font-size:1.4rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="sidebar-logo">
+            DEEPXAI
+        </div>
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text"
+                   placeholder="Search...">
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#intro">
+                    <i class="fa-solid fa-circle-info"></i>
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#architecture">
+                    <i class="fa-solid fa-robot"></i>
+                    DX-AI Tools
+                </a>
+            </li>
+
+            <li>
+                <a href="#formula">
+                    <i class="fa-solid fa-flask"></i>
+                    DX-AI Research
+                </a>
+            </li>
+
+            <li>
+                <a href="#timeline">
+                    <i class="fa-solid fa-microchip"></i>
+                    DX-AI Models
+                </a>
+            </li>
+
+            <li>
+                <a href="#future">
+                    <i class="fa-solid fa-pen"></i>
+                    DX-AI Blogs
+                </a>
+            </li>
+
+            <li>
+                <a href="#learning">
+                    <i class="fa-solid fa-book"></i>
+                    DX-AI Learning
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <section class="hero">
+
+        <div class="particles">
+
+            <span style="left:10%; animation-duration:8s;"></span>
+            <span style="left:20%; animation-duration:11s;"></span>
+            <span style="left:30%; animation-duration:7s;"></span>
+            <span style="left:40%; animation-duration:13s;"></span>
+            <span style="left:50%; animation-duration:9s;"></span>
+            <span style="left:60%; animation-duration:12s;"></span>
+            <span style="left:70%; animation-duration:6s;"></span>
+            <span style="left:80%; animation-duration:14s;"></span>
+            <span style="left:90%; animation-duration:10s;"></span>
+
+        </div>
+
+        <div class="hero-center-wrapper">
+
+            <div class="hero-content">
+
+                <h1>
+                    TRANSFORMERS<br>
+                    THE ARCHITECTURE<br>
+                    POWERING MODERN AI
+                </h1>
+
+                <p>
+
+                    Transformers changed the future of artificial intelligence forever.
+                    From ChatGPT and Gemini to image generation and autonomous systems,
+                    transformer architectures became the foundation of modern intelligent models.
+                    This DeepXAI article explores everything about transformers —
+                    attention mechanisms, self-attention, embeddings, neural reasoning,
+                    and the mathematical equations behind modern AI systems.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#architecture" class="btn btn-primary">
+                        Explore Transformers
+                    </a>
+
+                    <a href="#formula" class="btn btn-secondary">
+                        Famous Formula
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="intro">
+
+        <h2 class="section-title">
+            What Are Transformers?
+        </h2>
+
+        <p class="section-subtitle">
+
+            Transformers are deep learning architectures introduced in the landmark
+            research paper <span class="highlight">“Attention Is All You Need”</span>.
+            Unlike traditional recurrent neural networks,
+            transformers process entire sequences simultaneously using attention mechanisms,
+            enabling massive scalability and parallel computation.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <h3>Self-Attention</h3>
+
+                <p>
+
+                    Transformers understand relationships between words
+                    by calculating how strongly every token should focus
+                    on every other token inside a sentence.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-microchip"></i>
+
+                <h3>Parallel Processing</h3>
+
+                <p>
+
+                    Unlike RNNs, transformers process sequences in parallel,
+                    dramatically improving training speed and scalability
+                    for large AI systems.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+                <h3>Foundation Models</h3>
+
+                <p>
+
+                    Modern LLMs such as GPT, Claude, Gemini, and DeepSeek
+                    are all built on transformer-based architectures.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="architecture">
+
+        <h2 class="section-title">
+            Transformer Architecture
+        </h2>
+
+        <p class="section-subtitle">
+
+            A transformer model consists of embeddings,
+            positional encoding, multi-head attention,
+            feed-forward neural networks, normalization layers,
+            and decoder or encoder blocks working together.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Input Embeddings</h3>
+
+                <p>
+
+                    Words are converted into mathematical vectors
+                    that AI systems can understand and process.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Positional Encoding</h3>
+
+                <p>
+
+                    Since transformers process all words simultaneously,
+                    positional encodings help the model understand sequence order.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Multi-Head Attention</h3>
+
+                <p>
+
+                    Multiple attention heads allow the model
+                    to learn different relationships and meanings simultaneously.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="formula">
+
+        <h2 class="section-title">
+            Famous Transformer Formula
+        </h2>
+
+        <p class="section-subtitle">
+
+            The most famous mathematical equation in transformer architecture
+            is the scaled dot-product attention formula.
+            It powers self-attention and enables transformers
+            to decide which words or tokens are most important.
+
+        </p>
+
+        <div class="formula-box">
+
+            <div class="formula">
+                Attention(Q, K, V) = softmax((QKᵀ) / √dₖ)V
+            </div>
+
+            <div class="formula-description">
+
+                <p>
+
+                    <span class="highlight">Q</span> = Query Matrix<br><br>
+
+                    <span class="highlight">K</span> = Key Matrix<br><br>
+
+                    <span class="highlight">V</span> = Value Matrix<br><br>
+
+                    <span class="highlight">QKᵀ</span> calculates similarity between tokens.<br><br>
+
+                    <span class="highlight">√dₖ</span> stabilizes the gradients during training.<br><br>
+
+                    <span class="highlight">softmax</span> converts scores into probabilities.<br><br>
+
+                    Finally, the output determines how much attention
+                    should be given to every token in the sequence.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="timeline">
+
+        <h2 class="section-title">
+            Evolution of Transformers
+        </h2>
+
+        <p class="section-subtitle">
+
+            Transformers rapidly evolved from a research concept
+            into the dominant architecture behind modern AI systems.
+
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-card">
+
+                <h3>2017 — Attention Is All You Need</h3>
+
+                <p>
+
+                    Google researchers introduced transformers,
+                    replacing recurrence with self-attention mechanisms.
+
+                </p>
+
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>2018 — BERT</h3>
+
+                <p>
+
+                    Bidirectional transformers revolutionized NLP understanding,
+                    contextual embeddings, and language comprehension.
+
+                </p>
+
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>2020+ — GPT Era</h3>
+
+                <p>
+
+                    Large-scale generative transformer models
+                    enabled conversational AI, reasoning systems,
+                    coding assistants, and multimodal intelligence.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="future">
+
+        <h2 class="section-title">
+            The Future of Transformers
+        </h2>
+
+        <p class="section-subtitle">
+
+            Transformers are now expanding far beyond text generation.
+            Future systems may power autonomous robotics,
+            scientific discovery, AGI reasoning systems,
+            advanced simulations, and intelligent operating systems.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Multimodal Intelligence</h3>
+
+                <p>
+
+                    Future transformers will seamlessly understand
+                    text, images, video, audio, and real-world sensor data.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>AI Reasoning</h3>
+
+                <p>
+
+                    Researchers are pushing transformers
+                    toward mathematical reasoning,
+                    planning, and autonomous decision-making.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>AGI Systems</h3>
+
+                <p>
+
+                    Transformer-based architectures are considered
+                    one of the strongest foundations
+                    for future AGI development.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="learning">
+
+        <h2 class="section-title">
+            DeepXAI Learning Notes
+        </h2>
+
+        <p class="section-subtitle">
+
+            Important concepts to master while learning transformers
+            and modern AI systems.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Neural Networks</h3>
+
+                <p>
+
+                    Understand neurons, activation functions,
+                    gradient descent, and backpropagation.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Linear Algebra</h3>
+
+                <p>
+
+                    Matrices, vectors, tensor operations,
+                    and matrix multiplication are fundamental.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Attention Mechanisms</h3>
+
+                <p>
+
+                    Learn self-attention deeply to understand
+                    how modern AI models reason over information.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer id="contact">
+
+        <p>
+            © 2026 DEEPXAI — INNOVATIVE and BOLD Experiments (IBX Labs)
+        </p>
+
+        <div class="socials">
+
+            <a href="#">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
