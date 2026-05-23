@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DEEPXAI | The Future of AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Montserrat',sans-serif;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#050505;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        .sidebar{
+
+            position:fixed;
+
+            left:0;
+            top:0;
+
+            width:280px;
+            height:100vh;
+
+            background:rgba(0,0,0,0.92);
+
+            backdrop-filter:blur(15px);
+
+            border-right:1px solid rgba(255,255,255,0.05);
+
+            padding:40px 25px;
+
+            z-index:1000;
+
+            overflow-y:auto;
+
+        }
+
+        .sidebar::-webkit-scrollbar{
+            width:5px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb{
+            background:rgba(255,255,255,0.15);
+            border-radius:10px;
+        }
+
+        .sidebar-logo{
+
+            color:white;
+
+            font-size:2rem;
+            font-weight:800;
+
+            letter-spacing:4px;
+
+            margin-bottom:50px;
+
+        }
+
+        .search-box{
+
+            width:100%;
+            height:55px;
+
+            background:rgba(255,255,255,0.05);
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            border-radius:12px;
+
+            display:flex;
+            align-items:center;
+
+            padding:0 18px;
+
+            margin-bottom:50px;
+
+        }
+
+        .search-box i{
+
+            color:#bdbdbd;
+
+            margin-right:12px;
+
+        }
+
+        .search-box input{
+
+            width:100%;
+
+            background:none;
+
+            border:none;
+
+            outline:none;
+
+            color:white;
+
+            font-size:0.95rem;
+
+        }
+
+        .search-box input::placeholder{
+            color:#9f9f9f;
+        }
+
+        .sidebar ul{
+
+            list-style:none;
+
+            display:flex;
+            flex-direction:column;
+
+            gap:18px;
+
+        }
+
+        .sidebar ul li a{
+
+            width:100%;
+
+            padding:16px 18px;
+
+            border-radius:12px;
+
+            display:flex;
+            align-items:center;
+
+            gap:15px;
+
+            text-decoration:none;
+
+            color:#d4d4d4;
+
+            transition:0.35s ease;
+
+            font-size:1rem;
+
+        }
+
+        .sidebar ul li a:hover{
+
+            background:white;
+
+            color:black;
+
+            transform:translateX(5px);
+
+        }
+
+        section,
+        footer{
+
+            margin-left:280px;
+
+        }
+
+        .hero{
+
+            margin-left:280px;
+
+            min-height:100vh;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            position:relative;
+
+            overflow:hidden;
+
+            padding:0 40px;
+
+        }
+
+        .hero::before{
+
+            content:'';
+
+            position:absolute;
+
+            width:900px;
+            height:900px;
+
+            background:
+            radial-gradient(circle,
+            rgba(255,255,255,0.06),
+            transparent 65%);
+
+            z-index:0;
+
+        }
+
+        .particles span{
+
+            position:absolute;
+
+            width:2px;
+            height:2px;
+
+            background:white;
+
+            border-radius:50%;
+
+            opacity:0.3;
+
+            animation:float 10s linear infinite;
+
+        }
+
+        @keyframes float{
+
+            from{
+                transform:translateY(100vh);
+            }
+
+            to{
+                transform:translateY(-100vh);
+            }
+
+        }
+
+        .hero-center-wrapper{
+
+            width:100%;
+            max-width:1000px;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            text-align:center;
+
+            z-index:10;
+
+        }
+
+        .hero-content h1{
+
+            font-size:4.3rem;
+            font-weight:800;
+
+            line-height:1.2;
+
+            margin-bottom:30px;
+
+            letter-spacing:-0.03em;
+
+        }
+
+        .hero-content p{
+
+            color:#d8d8d8;
+
+            font-size:1.15rem;
+
+            line-height:1.9;
+
+            max-width:850px;
+
+            margin:auto;
+
+        }
+
+        .hero-buttons{
+
+            margin-top:50px;
+
+            display:flex;
+            justify-content:center;
+
+            gap:25px;
+
+            flex-wrap:wrap;
+
+        }
+
+        .btn{
+
+            padding:18px 40px;
+
+            border-radius:12px;
+
+            text-decoration:none;
+
+            font-size:1rem;
+            font-weight:600;
+
+            transition:0.35s ease;
+
+        }
+
+        .btn-primary{
+
+            background:white;
+            color:black;
+
+        }
+
+        .btn-primary:hover{
+
+            background:transparent;
+
+            color:white;
+
+            border:1px solid white;
+
+            transform:translateY(-5px);
+
+        }
+
+        .btn-secondary{
+
+            border:1px solid rgba(255,255,255,0.3);
+
+            color:white;
+
+        }
+
+        .btn-secondary:hover{
+
+            background:white;
+
+            color:black;
+
+            transform:translateY(-5px);
+
+        }
+
+        section{
+
+            padding:120px 8%;
+
+        }
+
+        .section-title{
+
+            font-size:3rem;
+
+            font-weight:800;
+
+            margin-bottom:20px;
+
+        }
+
+        .section-subtitle{
+
+            color:#bdbdbd;
+
+            max-width:800px;
+
+            line-height:1.9;
+
+            margin-bottom:60px;
+
+        }
+
+        .grid{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(280px,1fr));
+
+            gap:30px;
+
+        }
+
+        .card{
+
+            background:rgba(255,255,255,0.03);
+
+            border:1px solid rgba(255,255,255,0.05);
+
+            padding:35px;
+
+            border-radius:20px;
+
+            transition:0.4s;
+
+            backdrop-filter:blur(10px);
+
+        }
+
+        .card:hover{
+
+            transform:translateY(-10px);
+
+            border:1px solid rgba(255,255,255,0.15);
+
+            box-shadow:
+            0 0 25px rgba(255,255,255,0.05);
+
+        }
+
+        .card i{
+
+            font-size:2rem;
+
+            margin-bottom:20px;
+
+        }
+
+        .card h3{
+
+            margin-bottom:15px;
+
+            font-size:1.4rem;
+
+        }
+
+        .card p{
+
+            color:#c9c9c9;
+
+            line-height:1.9;
+
+        }
+
+        .highlight{
+            font-weight:700;
+            color:white;
+        }
+
+        .quote-box{
+
+            background:rgba(255,255,255,0.04);
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            border-radius:20px;
+
+            padding:50px;
+
+            margin-top:40px;
+
+            text-align:center;
+
+        }
+
+        .quote-box h2{
+
+            font-size:2.3rem;
+
+            line-height:1.7;
+
+            margin-bottom:25px;
+
+        }
+
+        .quote-box p{
+
+            color:#d0d0d0;
+
+            line-height:2;
+
+            max-width:900px;
+
+            margin:auto;
+
+        }
+
+        .timeline{
+
+            display:flex;
+            flex-direction:column;
+
+            gap:30px;
+
+        }
+
+        .timeline-card{
+
+            background:rgba(255,255,255,0.03);
+
+            border:1px solid rgba(255,255,255,0.05);
+
+            border-radius:20px;
+
+            padding:35px;
+
+        }
+
+        .timeline-card h3{
+
+            margin-bottom:15px;
+
+            font-size:1.5rem;
+
+        }
+
+        .timeline-card p{
+
+            color:#d0d0d0;
+
+            line-height:1.9;
+
+        }
+
+        footer{
+
+            padding:50px 8%;
+
+            border-top:1px solid rgba(255,255,255,0.05);
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            flex-wrap:wrap;
+
+            gap:20px;
+
+        }
+
+        footer p{
+            color:#bdbdbd;
+        }
+
+        .socials{
+
+            display:flex;
+
+            gap:20px;
+
+        }
+
+        .socials a{
+
+            color:white;
+
+            font-size:1.2rem;
+
+            transition:0.3s;
+
+        }
+
+        .socials a:hover{
+            transform:translateY(-5px);
+        }
+
+        @media(max-width:900px){
+
+            .sidebar{
+
+                width:100%;
+
+                height:auto;
+
+                position:relative;
+
+                border-right:none;
+
+                border-bottom:1px solid rgba(255,255,255,0.05);
+
+            }
+
+            .sidebar ul{
+
+                flex-direction:row;
+
+                flex-wrap:wrap;
+
+            }
+
+            .hero,
+            section,
+            footer{
+
+                margin-left:0;
+
+                width:100%;
+
+            }
+
+            .hero-content h1{
+                font-size:2.7rem;
+            }
+
+            .section-title{
+                font-size:2.2rem;
+            }
+
+            .quote-box h2{
+                font-size:1.6rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="sidebar-logo">
+            DEEPXAI
+        </div>
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="text"
+                   placeholder="Search...">
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#intro">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Introduction
+                </a>
+            </li>
+
+            <li>
+                <a href="#ai">
+                    <i class="fa-solid fa-robot"></i>
+                    AI Overview
+                </a>
+            </li>
+
+            <li>
+                <a href="#agi">
+                    <i class="fa-solid fa-flask"></i>
+                    AGI Research
+                </a>
+            </li>
+
+            <li>
+                <a href="#asi">
+                    <i class="fa-solid fa-microchip"></i>
+                    ASI Challenges
+                </a>
+            </li>
+
+            <li>
+                <a href="#future">
+                    <i class="fa-solid fa-pen"></i>
+                    AI Future
+                </a>
+            </li>
+
+            <li>
+                <a href="#timeline">
+                    <i class="fa-solid fa-book"></i>
+                    Timeline
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <section class="hero">
+
+        <div class="particles">
+
+            <span style="left:10%; animation-duration:8s;"></span>
+            <span style="left:20%; animation-duration:11s;"></span>
+            <span style="left:30%; animation-duration:7s;"></span>
+            <span style="left:40%; animation-duration:13s;"></span>
+            <span style="left:50%; animation-duration:9s;"></span>
+            <span style="left:60%; animation-duration:12s;"></span>
+            <span style="left:70%; animation-duration:6s;"></span>
+            <span style="left:80%; animation-duration:14s;"></span>
+            <span style="left:90%; animation-duration:10s;"></span>
+
+        </div>
+
+        <div class="hero-center-wrapper">
+
+            <div class="hero-content">
+
+                <h1>
+                    THE FUTURE OF AI<br>
+                    AGI & ASI
+                </h1>
+
+                <p>
+
+                    Artificial Intelligence is rapidly evolving from narrow task-based systems
+                    toward Artificial General Intelligence and eventually Artificial Super Intelligence.
+                    The future may redefine civilization itself —
+                    transforming science, economies, medicine, engineering,
+                    robotics, creativity, and the relationship between humans and machines.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#ai" class="btn btn-primary">
+                        Explore AI
+                    </a>
+
+                    <a href="#future" class="btn btn-secondary">
+                        Future Vision
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="intro">
+
+        <h2 class="section-title">
+            The Evolution of Intelligence
+        </h2>
+
+        <p class="section-subtitle">
+
+            Humanity is entering an era where intelligence itself
+            is becoming programmable. AI systems are evolving from
+            narrow machine learning tools into reasoning systems capable
+            of learning, adapting, and potentially surpassing human capabilities.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <h3>Artificial Intelligence</h3>
+
+                <p>
+
+                    Modern AI systems can perform specific tasks such as
+                    coding, reasoning, image generation, language understanding,
+                    and scientific analysis.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-microchip"></i>
+
+                <h3>General Intelligence</h3>
+
+                <p>
+
+                    AGI aims to create systems capable of learning and solving
+                    problems across multiple domains similarly to humans.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-infinity"></i>
+
+                <h3>Super Intelligence</h3>
+
+                <p>
+
+                    ASI represents intelligence that could surpass
+                    the smartest humans in every field including science,
+                    engineering, strategy, and creativity.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="ai">
+
+        <h2 class="section-title">
+            Artificial Intelligence (AI)
+        </h2>
+
+        <p class="section-subtitle">
+
+            Current AI systems are considered narrow intelligence systems.
+            They specialize in specific domains such as language,
+            robotics, medical analysis, autonomous driving, or image recognition.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Language Models</h3>
+
+                <p>
+
+                    AI systems can understand and generate human language,
+                    enabling chatbots, coding assistants,
+                    and intelligent research systems.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Computer Vision</h3>
+
+                <p>
+
+                    AI models analyze images and videos,
+                    powering facial recognition, autonomous systems,
+                    and advanced diagnostics.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Automation</h3>
+
+                <p>
+
+                    AI is transforming industries by automating
+                    repetitive processes and increasing productivity.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="agi">
+
+        <h2 class="section-title">
+            Artificial General Intelligence (AGI)
+        </h2>
+
+        <p class="section-subtitle">
+
+            AGI refers to systems capable of generalized intelligence.
+            Unlike narrow AI, AGI could reason, learn,
+            adapt, and solve unfamiliar problems across domains.
+
+        </p>
+
+        <div class="quote-box">
+
+            <h2>
+
+                “AGI may become one of the most important technological
+                breakthroughs in human history.”
+
+            </h2>
+
+            <p>
+
+                A true AGI system could potentially perform scientific discovery,
+                engineering design, mathematical reasoning,
+                autonomous research, strategic thinking,
+                and continuous self-improvement at human-level capability
+                or beyond.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <section id="asi">
+
+        <h2 class="section-title">
+            Artificial Super Intelligence (ASI)
+        </h2>
+
+        <p class="section-subtitle">
+
+            ASI represents a theoretical future intelligence
+            that surpasses human cognitive abilities in every measurable field.
+            Many researchers consider ASI both the greatest opportunity
+            and the greatest technological challenge humanity may face.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Scientific Discovery</h3>
+
+                <p>
+
+                    ASI could solve problems in physics,
+                    medicine, aerospace, energy systems,
+                    and advanced mathematics far beyond current capabilities.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Autonomous Innovation</h3>
+
+                <p>
+
+                    Superintelligent systems may independently design
+                    technologies, optimize civilizations,
+                    and accelerate human progress exponentially.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>AI Safety Challenges</h3>
+
+                <p>
+
+                    Ensuring alignment, control,
+                    ethics, and human safety becomes critically important
+                    as intelligence scales beyond human understanding.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="future">
+
+        <h2 class="section-title">
+            The Future World with AI
+        </h2>
+
+        <p class="section-subtitle">
+
+            Future AI systems may transform every major industry
+            and redefine how civilizations operate.
+
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>AI Scientists</h3>
+
+                <p>
+
+                    AI systems could autonomously conduct research,
+                    simulate experiments,
+                    and accelerate scientific breakthroughs.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>AI Robotics</h3>
+
+                <p>
+
+                    Intelligent humanoid robots may assist in manufacturing,
+                    medicine, construction, logistics,
+                    and space exploration.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>AI Civilization</h3>
+
+                <p>
+
+                    AI may eventually become deeply integrated
+                    into governance, education,
+                    economies, transportation,
+                    and global infrastructure.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="timeline">
+
+        <h2 class="section-title">
+            Possible Timeline of AI Evolution
+        </h2>
+
+        <p class="section-subtitle">
+
+            AI development is accelerating rapidly,
+            though the exact timeline toward AGI and ASI remains uncertain.
+
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-card">
+
+                <h3>Present Era — Narrow AI</h3>
+
+                <p>
+
+                    AI systems dominate language models,
+                    recommendation systems,
+                    coding assistants,
+                    and generative media technologies.
+
+                </p>
+
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>Future Era — AGI Systems</h3>
+
+                <p>
+
+                    Research may eventually lead to systems
+                    capable of generalized reasoning,
+                    autonomous learning,
+                    and cross-domain intelligence.
+
+                </p>
+
+            </div>
+
+            <div class="timeline-card">
+
+                <h3>Long-Term Era — ASI Civilization</h3>
+
+                <p>
+
+                    Superintelligence could fundamentally reshape
+                    humanity’s future,
+                    technological progress,
+                    and our understanding of intelligence itself.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer id="contact">
+
+        <p>
+            © 2026 DEEPXAI — INNOVATIVE and BOLD Experiments (IBX Labs)
+        </p>
+
+        <div class="socials">
+
+            <a href="#">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
