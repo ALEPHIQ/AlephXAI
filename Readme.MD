@@ -1,10 +1,10 @@
-# DEEPXAI
+# ALEPHXAI
 
 > Building the Future of Artificial Intelligence
 
 ## Overview
 
-DEEPXAI is a futuristic AI startup website project built using HTML, CSS, and Django integration concepts.  
+ALEPHXAI is a futuristic AI startup website project built using HTML, CSS, and Django integration concepts.  
 The platform is designed as the foundation for future AI tools, intelligent systems, research projects, blogs, and advanced AI model development.
 
 This project currently includes:
@@ -21,7 +21,7 @@ This project currently includes:
 
 # Vision
 
-DEEPXAI aims to explore and develop:
+ALEPHXAI aims to explore and develop:
 
 - Artificial Intelligence
 - Mathematical Intelligence
@@ -107,7 +107,7 @@ Modern sidebar navigation
 Research Areas
 
 
-## DEEPXAI research focuses on:
+## AlephXAI research focuses on:
 
 Artificial General Intelligence (AGI)
 Mathematical AI
@@ -142,7 +142,7 @@ This project is currently under a custom private development phase.
 Creator
 
 Created by Dev Kumar
-Founder of DEEPXAI
+Founder of AlephXAI
 
 Final Statement
 

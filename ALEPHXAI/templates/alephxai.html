@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DEEPXAI | Transformers</title>
+    <title>AlephXAI | About</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -53,11 +53,11 @@
 
         }
 
-        .sidebar::-webkit-scrollbar {
+        .sidebar::-webkit-scrollbar{
             width:5px;
         }
 
-        .sidebar::-webkit-scrollbar-thumb {
+        .sidebar::-webkit-scrollbar-thumb{
             background:rgba(255,255,255,0.15);
             border-radius:10px;
         }
@@ -198,8 +198,8 @@
 
             position:absolute;
 
-            width:800px;
-            height:800px;
+            width:900px;
+            height:900px;
 
             background:
             radial-gradient(circle,
@@ -242,11 +242,12 @@
         .hero-center-wrapper{
 
             width:100%;
-            max-width:950px;
+            max-width:1000px;
 
             display:flex;
             justify-content:center;
             align-items:center;
+
             text-align:center;
 
             z-index:10;
@@ -255,26 +256,26 @@
 
         .hero-content h1{
 
-            font-size:4.2rem;
+            font-size:4.3rem;
             font-weight:800;
 
             line-height:1.2;
 
-            letter-spacing:-0.02em;
+            margin-bottom:30px;
 
-            margin-bottom:25px;
+            letter-spacing:-0.03em;
 
         }
 
         .hero-content p{
 
-            color:#d6d6d6;
+            color:#d8d8d8;
 
             font-size:1.15rem;
 
             line-height:1.9;
 
-            max-width:800px;
+            max-width:850px;
 
             margin:auto;
 
@@ -365,7 +366,7 @@
 
             color:#bdbdbd;
 
-            max-width:800px;
+            max-width:850px;
 
             line-height:1.9;
 
@@ -429,13 +430,13 @@
 
         .card p{
 
-            color:#c6c6c6;
+            color:#c9c9c9;
 
-            line-height:1.8;
+            line-height:1.9;
 
         }
 
-        .formula-box{
+        .quote-box{
 
             background:rgba(255,255,255,0.04);
 
@@ -443,77 +444,34 @@
 
             border-radius:20px;
 
-            padding:40px;
+            padding:50px;
+
+            text-align:center;
 
             margin-top:40px;
 
         }
 
-        .formula{
+        .quote-box h2{
 
-            font-size:2rem;
+            font-size:2.4rem;
 
-            text-align:center;
+            line-height:1.6;
 
-            margin:35px 0;
-
-            font-weight:700;
-
-            color:white;
+            margin-bottom:25px;
 
         }
 
-        .formula-description{
-
-            color:#cfcfcf;
-
-            line-height:2;
-
-            font-size:1.05rem;
-
-        }
-
-        .timeline{
-
-            display:flex;
-            flex-direction:column;
-
-            gap:30px;
-
-        }
-
-        .timeline-card{
-
-            padding:35px;
-
-            border-radius:20px;
-
-            background:rgba(255,255,255,0.03);
-
-            border:1px solid rgba(255,255,255,0.05);
-
-        }
-
-        .timeline-card h3{
-
-            margin-bottom:15px;
-
-            font-size:1.5rem;
-
-        }
-
-        .timeline-card p{
+        .quote-box p{
 
             color:#d0d0d0;
 
-            line-height:1.9;
+            line-height:2;
 
-        }
+            max-width:900px;
 
-        .highlight{
+            margin:auto;
 
-            color:white;
-            font-weight:700;
         }
 
         footer{
@@ -595,15 +553,15 @@
             }
 
             .hero-content h1{
-                font-size:2.6rem;
+                font-size:2.7rem;
             }
 
             .section-title{
                 font-size:2.2rem;
             }
 
-            .formula{
-                font-size:1.4rem;
+            .quote-box h2{
+                font-size:1.7rem;
             }
 
         }
@@ -617,7 +575,7 @@
     <div class="sidebar">
 
         <div class="sidebar-logo">
-            DEEPXAI
+            AlephXAI
         </div>
 
         <div class="search-box">
@@ -625,51 +583,53 @@
             <i class="fa-solid fa-magnifying-glass"></i>
 
             <input type="text"
-                   placeholder="Search...">
+                   id="searchInput"
+                   placeholder="Search homepage sections..."
+                   onkeypress="handleSearch(event)">
 
         </div>
 
         <ul>
 
             <li>
-                <a href="#intro">
+                <a href="#about">
                     <i class="fa-solid fa-circle-info"></i>
-                    Introduction
+                    About
                 </a>
             </li>
 
             <li>
-                <a href="#architecture">
+                <a href="{ url 'aitools' }">
                     <i class="fa-solid fa-robot"></i>
-                    Architecture
+                    DX-AI Tools
                 </a>
             </li>
 
             <li>
-                <a href="#formula">
+                <a href="{ url 'airesearch' }">
                     <i class="fa-solid fa-flask"></i>
-                    Mathematical Formula
+                    DX-AI Research
                 </a>
             </li>
 
             <li>
-                <a href="#timeline">
+                <a href="{ url 'aimodels' }">
                     <i class="fa-solid fa-microchip"></i>
-                    Timeline
+                    DX-AI Models
                 </a>
             </li>
 
             <li>
-                <a href="#future">
+                <a href="{ url 'aiblogs' }">
                     <i class="fa-solid fa-pen"></i>
-                    Future
+                    DX-AI Blogs
                 </a>
             </li>
 
             <li>
-                <a href="#learning">
+                <a href="{ url  'ailearning' }">
                     <i class="fa-solid fa-book"></i>
-                    Learning
+                    DX-AI Learning
                 </a>
             </li>
 
@@ -705,30 +665,29 @@
             <div class="hero-content">
 
                 <h1>
-                    TRANSFORMERS<br>
-                    THE ARCHITECTURE<br>
-                    POWERING MODERN AI
+                    ABOUT<br>
+                    AlephXAI
                 </h1>
 
                 <p>
 
-                    Transformers changed the future of artificial intelligence forever.
-                    From ChatGPT and Gemini to image generation and autonomous systems,
-                    transformer architectures became the foundation of modern intelligent models.
-                    This DeepXAI article explores everything about transformers —
-                    attention mechanisms, self-attention, embeddings, neural reasoning,
-                    and the mathematical equations behind modern AI systems.
+                    AlephXAI is a futuristic artificial intelligence initiative
+                    focused on building intelligent systems,
+                    advanced reasoning architectures,
+                    AI research platforms,
+                    mathematical intelligence models,
+                    and next-generation software technologies.
 
                 </p>
 
                 <div class="hero-buttons">
 
-                    <a href="#architecture" class="btn btn-primary">
-                        Explore Transformers
+                    <a href="#vision" class="btn btn-primary">
+                        Explore Vision
                     </a>
 
-                    <a href="#formula" class="btn btn-secondary">
-                        Famous Formula
+                    <a href="#research" class="btn btn-secondary">
+                        Research
                     </a>
 
                 </div>
@@ -739,19 +698,20 @@
 
     </section>
 
-    <section id="intro">
+    <section id="vision">
 
         <h2 class="section-title">
-            What Are Transformers?
+            Vision of AlephXAI
         </h2>
 
         <p class="section-subtitle">
 
-            Transformers are deep learning architectures introduced in the landmark
-            research paper <span class="highlight">“Attention Is All You Need”</span>.
-            Unlike traditional recurrent neural networks,
-            transformers process entire sequences simultaneously using attention mechanisms,
-            enabling massive scalability and parallel computation.
+            AlephXAI aims to contribute toward the future evolution
+            of artificial intelligence through engineering,
+            research,
+            intelligent systems,
+            mathematical reasoning,
+            and futuristic technological innovation.
 
         </p>
 
@@ -761,13 +721,14 @@
 
                 <i class="fa-solid fa-brain"></i>
 
-                <h3>Self-Attention</h3>
+                <h3>Artificial Intelligence</h3>
 
                 <p>
 
-                    Transformers understand relationships between words
-                    by calculating how strongly every token should focus
-                    on every other token inside a sentence.
+                    Building intelligent systems focused on learning,
+                    reasoning,
+                    automation,
+                    and advanced AI architectures.
 
                 </p>
 
@@ -777,13 +738,14 @@
 
                 <i class="fa-solid fa-microchip"></i>
 
-                <h3>Parallel Processing</h3>
+                <h3>Future Technologies</h3>
 
                 <p>
 
-                    Unlike RNNs, transformers process sequences in parallel,
-                    dramatically improving training speed and scalability
-                    for large AI systems.
+                    Exploring futuristic systems including AGI,
+                    AI operating systems,
+                    simulations,
+                    and intelligent digital ecosystems.
 
                 </p>
 
@@ -791,14 +753,14 @@
 
             <div class="card">
 
-                <i class="fa-solid fa-network-wired"></i>
+                <i class="fa-solid fa-flask"></i>
 
-                <h3>Foundation Models</h3>
+                <h3>Research & Innovation</h3>
 
                 <p>
 
-                    Modern LLMs such as GPT, Claude, Gemini, and DeepSeek
-                    are all built on transformer-based architectures.
+                    AlephXAI focuses on research-driven development
+                    and experimentation in next-generation intelligence systems.
 
                 </p>
 
@@ -808,18 +770,16 @@
 
     </section>
 
-    <section id="architecture">
+    <section id="research">
 
         <h2 class="section-title">
-            Transformer Architecture
+            Research Areas
         </h2>
 
         <p class="section-subtitle">
 
-            A transformer model consists of embeddings,
-            positional encoding, multi-head attention,
-            feed-forward neural networks, normalization layers,
-            and decoder or encoder blocks working together.
+            AlephXAI explores multiple areas of modern AI research
+            and advanced computational intelligence.
 
         </p>
 
@@ -827,12 +787,13 @@
 
             <div class="card">
 
-                <h3>Input Embeddings</h3>
+                <h3>Large Language Models</h3>
 
                 <p>
 
-                    Words are converted into mathematical vectors
-                    that AI systems can understand and process.
+                    Researching transformer architectures,
+                    reasoning systems,
+                    and advanced language intelligence models.
 
                 </p>
 
@@ -840,12 +801,12 @@
 
             <div class="card">
 
-                <h3>Positional Encoding</h3>
+                <h3>Mathematical Intelligence</h3>
 
                 <p>
 
-                    Since transformers process all words simultaneously,
-                    positional encodings help the model understand sequence order.
+                    Developing symbolic reasoning systems
+                    and mathematical AI architectures.
 
                 </p>
 
@@ -853,12 +814,13 @@
 
             <div class="card">
 
-                <h3>Multi-Head Attention</h3>
+                <h3>AI Safety</h3>
 
                 <p>
 
-                    Multiple attention heads allow the model
-                    to learn different relationships and meanings simultaneously.
+                    Exploring safe,
+                    aligned,
+                    and responsible intelligent systems.
 
                 </p>
 
@@ -868,45 +830,56 @@
 
     </section>
 
-    <section id="formula">
+    <section id="projects">
 
         <h2 class="section-title">
-            Famous Transformer Formula
+            AlephXAI Projects
         </h2>
 
         <p class="section-subtitle">
 
-            The most famous mathematical equation in transformer architecture
-            is the scaled dot-product attention formula.
-            It powers self-attention and enables transformers
-            to decide which words or tokens are most important.
+            Current and future AlephXAI systems
+            under research and development.
 
         </p>
 
-        <div class="formula-box">
+        <div class="grid">
 
-            <div class="formula">
-                Attention(Q, K, V) = softmax((QKᵀ) / √dₖ)V
-            </div>
+            <div class="card">
 
-            <div class="formula-description">
+                <h3>DX-Math</h3>
 
                 <p>
 
-                    <span class="highlight">Q</span> = Query Matrix<br><br>
+                    Advanced mathematical reasoning AI
+                    focused on symbolic intelligence
+                    and educational systems.
 
-                    <span class="highlight">K</span> = Key Matrix<br><br>
+                </p>
 
-                    <span class="highlight">V</span> = Value Matrix<br><br>
+            </div>
 
-                    <span class="highlight">QKᵀ</span> calculates similarity between tokens.<br><br>
+            <div class="card">
 
-                    <span class="highlight">√dₖ</span> stabilizes the gradients during training.<br><br>
+                <h3>DeepSearch</h3>
 
-                    <span class="highlight">softmax</span> converts scores into probabilities.<br><br>
+                <p>
 
-                    Finally, the output determines how much attention
-                    should be given to every token in the sequence.
+                    Intelligent search and knowledge exploration platform
+                    powered by AI systems.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>DX-Reasoner</h3>
+
+                <p>
+
+                    Future reasoning-focused architecture
+                    designed for deeper intelligence systems.
 
                 </p>
 
@@ -916,60 +889,35 @@
 
     </section>
 
-    <section id="timeline">
+    <section id="mission">
 
         <h2 class="section-title">
-            Evolution of Transformers
+            Mission Statement
         </h2>
 
-        <p class="section-subtitle">
+        <div class="quote-box">
 
-            Transformers rapidly evolved from a research concept
-            into the dominant architecture behind modern AI systems.
+            <h2>
 
-        </p>
+                “Our mission is to build intelligent systems
+                capable of advancing human knowledge,
+                reasoning,
+                and technological evolution.”
 
-        <div class="timeline">
+            </h2>
 
-            <div class="timeline-card">
+            <p>
 
-                <h3>2017 — Attention Is All You Need</h3>
+                AlephXAI believes artificial intelligence
+                will become one of the most transformative technologies
+                in human history.
+                Through research,
+                experimentation,
+                and engineering,
+                AlephXAI aims to contribute toward the future
+                of machine intelligence and computational systems.
 
-                <p>
-
-                    Google researchers introduced transformers,
-                    replacing recurrence with self-attention mechanisms.
-
-                </p>
-
-            </div>
-
-            <div class="timeline-card">
-
-                <h3>2018 — BERT</h3>
-
-                <p>
-
-                    Bidirectional transformers revolutionized NLP understanding,
-                    contextual embeddings, and language comprehension.
-
-                </p>
-
-            </div>
-
-            <div class="timeline-card">
-
-                <h3>2020+ — GPT Era</h3>
-
-                <p>
-
-                    Large-scale generative transformer models
-                    enabled conversational AI, reasoning systems,
-                    coding assistants, and multimodal intelligence.
-
-                </p>
-
-            </div>
+            </p>
 
         </div>
 
@@ -978,15 +926,16 @@
     <section id="future">
 
         <h2 class="section-title">
-            The Future of Transformers
+            The Future of AlephXAI
         </h2>
 
         <p class="section-subtitle">
 
-            Transformers are now expanding far beyond text generation.
-            Future systems may power autonomous robotics,
-            scientific discovery, AGI reasoning systems,
-            advanced simulations, and intelligent operating systems.
+            Future plans involve building advanced AI systems,
+            educational platforms,
+            reasoning models,
+            intelligent software ecosystems,
+            and research-driven technologies.
 
         </p>
 
@@ -994,12 +943,12 @@
 
             <div class="card">
 
-                <h3>Multimodal Intelligence</h3>
+                <h3>AGI Research</h3>
 
                 <p>
 
-                    Future transformers will seamlessly understand
-                    text, images, video, audio, and real-world sensor data.
+                    Exploring concepts related to generalized intelligence
+                    and future reasoning systems.
 
                 </p>
 
@@ -1007,13 +956,13 @@
 
             <div class="card">
 
-                <h3>AI Reasoning</h3>
+                <h3>AI Learning Platforms</h3>
 
                 <p>
 
-                    Researchers are pushing transformers
-                    toward mathematical reasoning,
-                    planning, and autonomous decision-making.
+                    Creating educational ecosystems
+                    focused on artificial intelligence
+                    and computational technologies.
 
                 </p>
 
@@ -1021,71 +970,13 @@
 
             <div class="card">
 
-                <h3>AGI Systems</h3>
+                <h3>Advanced Simulations</h3>
 
                 <p>
 
-                    Transformer-based architectures are considered
-                    one of the strongest foundations
-                    for future AGI development.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section id="learning">
-
-        <h2 class="section-title">
-            DeepXAI Learning Notes
-        </h2>
-
-        <p class="section-subtitle">
-
-            Important concepts to master while learning transformers
-            and modern AI systems.
-
-        </p>
-
-        <div class="grid">
-
-            <div class="card">
-
-                <h3>Neural Networks</h3>
-
-                <p>
-
-                    Understand neurons, activation functions,
-                    gradient descent, and backpropagation.
-
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>Linear Algebra</h3>
-
-                <p>
-
-                    Matrices, vectors, tensor operations,
-                    and matrix multiplication are fundamental.
-
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>Attention Mechanisms</h3>
-
-                <p>
-
-                    Learn self-attention deeply to understand
-                    how modern AI models reason over information.
+                    Investigating simulation systems,
+                    virtual intelligence,
+                    and futuristic computational environments.
 
                 </p>
 
@@ -1098,7 +989,7 @@
     <footer id="contact">
 
         <p>
-            © 2026 DEEPXAI — INNOVATIVE and BOLD Experiments (IBX Labs)
+            © 2026 AlephXAI — INNOVATIVE and BOLD Experiments (IBX Labs)
         </p>
 
         <div class="socials">
@@ -1118,6 +1009,49 @@
         </div>
 
     </footer>
+
+    <script>
+
+        function handleSearch(event){
+
+            if(event.key === "Enter"){
+
+                const value = document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase()
+                .trim();
+
+                const routes = {
+
+                    "about":"index.html#about",
+                    "tools":"index.html#tools",
+                    "ai tools":"index.html#tools",
+                    "research":"index.html#research",
+                    "models":"index.html#models",
+                    "blogs":"index.html#blogs",
+                    "learning":"index.html#learning",
+                    "contact":"index.html#contact"
+
+                };
+
+                if(routes[value]){
+
+                    window.location.href = routes[value];
+
+                }
+
+                else{
+
+                    alert("Section not found.");
+
+                }
+
+            }
+
+        }
+
+    </script>
 
 </body>
 

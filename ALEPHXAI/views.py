@@ -23,8 +23,8 @@ def agifuture(request):
 def mathai(request):
     return render(request, 'mathai.html')
 
-def deepxai(request):
-    return render(request, 'deepxai.html')
+def alephxai(request):
+    return render(request, 'alephxai.html')
 
 def aitutorials(request):
     return render(request, 'aitutorials.html')
@@ -35,9 +35,6 @@ def ailearning(request):
 def aicoding(request):
     return render(request, "aicoding.html")
 
-
-def deepxai(request):
-    return render(request, 'deepxai.html')
 
 def ai_research(request):
     return render (request, 'ai_research.html')
@@ -55,6 +52,7 @@ def ai_tools(request):
     return render(request, 'ai_tools.html')
 
     
+
 
 
 

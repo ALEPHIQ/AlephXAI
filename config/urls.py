@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from DEEPXAI import views
+from ALEPHXAI import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,7 +27,7 @@ urlpatterns = [
     path('aisafety/', views.aisafety, name = 'aisafety'),
     path('agifuture/', views.agifuture, name= 'agifuture'),
     path('mathai/', views.mathai, name='mathai'),
-    path('deepxai/', views.deepxai, name='deepxai'),
+    path('alephxai/', views.alephxai, name='alephxai'),
     path('aitutorials/', views.aitutorials, name='aitutorials'),
     path('ailearning/', views.ailearning, name='ailearning'),
     path('aicoding/', views.aicoding, name='aicoding'),
@@ -50,3 +50,4 @@ urlpatterns = [
     
          
 ]
+
