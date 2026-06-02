@@ -1,1 +1,1 @@
-web: gunicorn DEEPXAI.wsgi
+web: gunicorn config.wsgi
